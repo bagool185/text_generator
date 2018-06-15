@@ -4,3 +4,5 @@ logs
 User
 storage.json
 _*
+results
+*.txt
