@@ -36,7 +36,7 @@ class Parser:
 
                 word = self.format_word(word)
 
-                if prev_word != "": # check if it's the first word in the sentence
+                if prev_word != "" and word != "": # check if it's the first word in the sentence
 
                     if prev_word in word_candidates:
                         word_candidates[prev_word].append(word)

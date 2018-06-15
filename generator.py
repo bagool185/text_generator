@@ -14,12 +14,14 @@ def main():
 
     states = parser.get_states()
     chain = Chain(states[0], states)
+
+    OFFSET = 10 # words per line
     # Generate the text.
     for index in enumerate(states):
         chain.get_next_state()
 
-        if index[0] % 7 == 0:
-            print('')
+        if index[0] % OFFSET == 0 and index[0] > OFFSET - 1:
+           print('')
 
 
 if __name__ == "__main__":
