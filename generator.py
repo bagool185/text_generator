@@ -12,7 +12,7 @@ def main():
         filename = input("Enter the file's name\n")
         parser = Parser(filename)
 
-    states = parser.create_states()
+    states = parser.get_states()
     chain = Chain(states[0], states)
     # Generate the text.
     for index in enumerate(states):
