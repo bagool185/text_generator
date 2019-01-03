@@ -1,8 +1,10 @@
-from State import State
-
+# Standard imports
 from typing import Dict, List
 
 import re
+
+# Local imports
+from State import State
 
 
 class Parser:
@@ -18,7 +20,7 @@ class Parser:
             containing only alpha-numeric characters
         """
         word = word.strip().lower()
-        regex = re.compile('[,\.!?;:]')
+        regex = re.compile(r'[,\.!?;:]')
         word = regex.sub('', word)
 
         return word

@@ -1,7 +1,9 @@
+# Standard imports
+import sys
+
+# Local imports
 from Parser import Parser
 from Chain import Chain
-
-import sys
 
 
 def is_next_line(word_count: int) -> bool:
