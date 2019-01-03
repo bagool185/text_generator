@@ -1,7 +1,7 @@
-from Chain import Chain 
-from State import State 
+from State import State
 
 import re
+
 
 class Parser:
     """ Parse chain states from a text file """
@@ -10,7 +10,8 @@ class Parser:
 
         self.filename = filename
 
-    def format_word(self, word):
+    @staticmethod
+    def format_word(word):
         """ Return a string representing a stripped and lowercase word 
             containing only alpha-numeric characters
         """
@@ -26,7 +27,7 @@ class Parser:
         """
         read_file = open(self.filename, "r")
 
-         # Temp dictionary to map words with their candidates.
+        # Temp dictionary to map words with their candidates.
         word_candidates = dict()
 
         for line in read_file:
@@ -36,7 +37,7 @@ class Parser:
 
                 word = self.format_word(word)
 
-                if prev_word != "" and word != "": # check if it's the first word in the sentence
+                if prev_word != "" and word != "":  # check if it's the first word in the sentence
 
                     if prev_word in word_candidates:
                         word_candidates[prev_word].append(word)
