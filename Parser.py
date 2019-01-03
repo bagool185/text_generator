@@ -1,5 +1,7 @@
 from State import State
 
+from typing import Dict, List
+
 import re
 
 
@@ -11,7 +13,7 @@ class Parser:
         self.filename = filename
 
     @staticmethod
-    def format_word(word):
+    def format_word(word: str) -> str:
         """ Return a string representing a stripped and lowercase word 
             containing only alpha-numeric characters
         """
@@ -21,7 +23,7 @@ class Parser:
 
         return word
 
-    def generate_states(self):
+    def generate_states(self) -> Dict[str]:
         """ Return a dictionary mapping words with their candidates
             i.e. words that follow them
         """
@@ -33,7 +35,7 @@ class Parser:
         for line in read_file:
             prev_word = ""
 
-            for word in re.split(' |\.|\n', line):
+            for word in re.split(r' |\.|\n', line):
 
                 word = self.format_word(word)
 
@@ -48,7 +50,7 @@ class Parser:
 
         return word_candidates
 
-    def get_states(self):
+    def get_states(self) -> List[State]:
         """ Return a list of States """
 
         word_candidates = self.generate_states()
